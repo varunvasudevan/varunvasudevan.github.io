@@ -101,6 +101,8 @@
   .chip { font-family: "JetBrains Mono", monospace; font-size: 11.5px; padding: 4px 9px; border-radius: 6px; background: var(--bg-2); border: 1px solid var(--line); color: var(--muted); }
   .shots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 16px; }
   .shots img { width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: top left; border-radius: 6px; border: 1px solid var(--line); cursor: zoom-in; background: #fff; transition: .2s; }
+  .shots.one { grid-template-columns: 1fr; }
+  .shots.one img { aspect-ratio: 16/9; }
   .shots img:hover { border-color: var(--accent); }
   .lightbox { position: fixed; inset: 0; background: rgba(5,8,18,.92); display: none; align-items: center; justify-content: center; z-index: 50; padding: 30px; cursor: zoom-out; flex-direction: column; gap: 14px; }
   .lightbox.open { display: flex; }
@@ -156,7 +158,7 @@
     <div class="stats">
       <div class="stat"><b>14+</b><span>Years in IT</span></div>
       <div class="stat"><b>400+</b><span>Network devices managed</span></div>
-      <div class="stat"><b>15+</b><span>Systems &amp; websites built</span></div>
+      <div class="stat"><b>20+</b><span>Systems &amp; websites built</span></div>
       <div class="stat"><b>MCA</b><span>Qualification</span></div>
     </div>
   </div>
@@ -256,6 +258,25 @@
           <img src="brio-health-markers.png" alt="Brio Health – biochemical markers and genetic linkage" loading="lazy" />
         </div>
         <div class="chips"><span class="chip">Laravel</span><span class="chip">Blade</span><span class="chip">Bootstrap</span><span class="chip">MySQL</span></div>
+      </article>
+
+      <article class="card" data-c="business">
+        <div class="cat">Desktop · Manufacturing</div>
+        <h3>QR Code Label Generator</h3>
+        <p>A Windows app that creates printable part labels with QR codes for manufacturing and supply-chain teams.</p>
+        <ul>
+          <li>Live label preview that updates as you type</li>
+          <li>QR code encoding supplier, part, batch, quantity and invoice details</li>
+          <li>Prints visiting-card-sized labels (3.5" × 2", 300 DPI) to any Windows printer</li>
+          <li>Save labels as PNG, JPEG or PDF</li>
+          <li>Print history with paginated reports and CSV export for Excel</li>
+          <li>Packaged as a single .exe with PyInstaller</li>
+        </ul>
+        <div class="shots one">
+          <img src="qr-label-generator.webp" alt="QR Code Label Generator – data entry and live label preview" loading="lazy" />
+        </div>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Tkinter</span><span class="chip">qrcode</span><span class="chip">pywin32</span><span class="chip">PyInstaller</span></div>
+        <a class="visit" href="https://github.com/varunvasudevan/qr-label-generator" target="_blank" rel="noopener">View project ↗</a>
       </article>
 
       <article class="card" data-c="business">
