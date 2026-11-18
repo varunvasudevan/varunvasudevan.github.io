@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Varun Kumar — IT Manager & Full-Stack Developer</title>
+<meta name="description" content="Portfolio of Varun Kumar: hospital IT, digital repositories, IoT platforms and web applications. 14+ years of experience, Mysore, India." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0b1020;
+    --bg-2: #111832;
+    --card: #141c3a;
+    --line: #243056;
+    --text: #e7eaf3;
+    --muted: #9aa3bf;
+    --accent: #f5b544;
+    --accent-2: #4fd1c5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(11,16,32,.85); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+  .logo { font-family: "JetBrains Mono", monospace; font-weight: 500; color: var(--accent); }
+  .links { display: flex; gap: 28px; font-size: 14px; color: var(--muted); }
+  .links a:hover { color: var(--text); }
+
+  /* Hero */
+  .hero { padding: 110px 0 90px; position: relative; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 48px 48px; opacity: .25;
+    mask-image: radial-gradient(ellipse at 30% 40%, #000 20%, transparent 70%);
+  }
+  .hero .wrap { position: relative; }
+  .tag { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--accent-2); margin-bottom: 18px; }
+  h1 { font-family: "Space Grotesk", sans-serif; font-size: clamp(40px, 6vw, 68px); line-height: 1.05; font-weight: 700; letter-spacing: -1.5px; }
+  h1 span { color: var(--accent); }
+  .hero p.lead { max-width: 640px; margin-top: 22px; font-size: 18px; color: var(--muted); }
+  .cta { display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
+  .btn { padding: 12px 22px; border-radius: 8px; font-weight: 600; font-size: 15px; border: 1px solid var(--line); transition: .2s; }
+  .btn.primary { background: var(--accent); color: #1a1205; border-color: var(--accent); }
+  .btn.primary:hover { filter: brightness(1.08); }
+  .btn:not(.primary):hover { border-color: var(--accent); }
+  .stats { display: flex; gap: 48px; margin-top: 64px; flex-wrap: wrap; }
+  .stat b { font-family: "Space Grotesk", sans-serif; font-size: 34px; display: block; color: var(--text); }
+  .stat span { font-size: 13px; color: var(--muted); }
+
+  /* Sections */
+  section { padding: 90px 0; border-top: 1px solid var(--line); }
+  .eyebrow { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--accent); margin-bottom: 10px; }
+  h2 { font-family: "Space Grotesk", sans-serif; font-size: 36px; letter-spacing: -.5px; margin-bottom: 14px; }
+  .sub { color: var(--muted); max-width: 640px; margin-bottom: 44px; }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; }
+  .about-grid p { color: var(--muted); margin-bottom: 16px; }
+  .roles { display: flex; flex-direction: column; gap: 14px; }
+  .role { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+  .role h4 { font-size: 15px; }
+  .role small { color: var(--muted); font-size: 13px; }
+
+  /* Filter */
+  .filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+  .filters button {
+    background: transparent; color: var(--muted); border: 1px solid var(--line);
+    padding: 7px 16px; border-radius: 999px; font: 500 13px "Inter", sans-serif; cursor: pointer;
+  }
+  .filters button.active, .filters button:hover { color: #1a1205; background: var(--accent); border-color: var(--accent); }
+
+  /* Projects */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 22px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 26px; display: flex; flex-direction: column; transition: .25s;
+  }
+  .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+  .card .cat { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--accent-2); margin-bottom: 10px; }
+  .card h3 { font-family: "Space Grotesk", sans-serif; font-size: 21px; margin-bottom: 10px; }
+  .card p { color: var(--muted); font-size: 14.5px; margin-bottom: 14px; }
+  .card ul { list-style: none; margin-bottom: 18px; }
+  .card li { font-size: 14px; color: var(--text); padding-left: 18px; position: relative; margin-bottom: 6px; }
+  .card li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+  .chip { font-family: "JetBrains Mono", monospace; font-size: 11.5px; padding: 4px 9px; border-radius: 6px; background: var(--bg-2); border: 1px solid var(--line); color: var(--muted); }
+  .shots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 16px; }
+  .shots img { width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: top left; border-radius: 6px; border: 1px solid var(--line); cursor: zoom-in; background: #fff; transition: .2s; }
+  .shots img:hover { border-color: var(--accent); }
+  .lightbox { position: fixed; inset: 0; background: rgba(5,8,18,.92); display: none; align-items: center; justify-content: center; z-index: 50; padding: 30px; cursor: zoom-out; flex-direction: column; gap: 14px; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 100%; max-height: 82vh; border-radius: 10px; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+  .lightbox p { color: var(--muted); font-size: 14px; }
+  .visit { margin-top: 16px; font-weight: 600; font-size: 14px; color: var(--accent); }
+  .visit:hover { text-decoration: underline; }
+  .note { margin-top: 30px; font-size: 13.5px; color: var(--muted); border-left: 3px solid var(--accent); padding-left: 14px; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+  .skill { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 22px; }
+  .skill h4 { font-family: "Space Grotesk", sans-serif; margin-bottom: 12px; color: var(--accent); }
+
+  /* Contact */
+  .contact { text-align: center; }
+  .contact .sub { margin: 0 auto 32px; }
+  .contact .cta { justify-content: center; }
+  footer { text-align: center; padding: 30px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); }
+
+  .hide { display: none !important; }
+
+  @media (max-width: 760px) {
+    .links { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .stats { gap: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo">&lt;varun.kumar /&gt;</a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="tag">// IT Manager · Full-Stack Developer · Systems &amp; IoT</div>
+    <h1>I build and run the systems<br/>that keep <span>organizations working.</span></h1>
+    <p class="lead">I'm Varun Kumar, from Mysore, India. I work across hospital IT, digital repositories, IoT platforms and web applications, from the server rack to the user interface.</p>
+    <div class="cta">
+      <a href="#projects" class="btn primary">View my work</a>
+      <a href="#contact" class="btn">Get in touch</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>14+</b><span>Years in IT</span></div>
+      <div class="stat"><b>400+</b><span>Network devices managed</span></div>
+      <div class="stat"><b>15+</b><span>Systems &amp; websites built</span></div>
+      <div class="stat"><b>MCA</b><span>Qualification</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow">01 / About</div>
+      <h2>Developer and systems admin in one</h2>
+      <p>I've spent over 14 years at the point where software meets infrastructure. I write the application, set up the server it runs on, and keep the network behind it healthy.</p>
+      <p>Right now I manage IT at a NABH-accredited hospital. That covers HMIS and LIMS administration, in-house modules for daily operations, and a network of hundreds of cameras, switches and endpoints. Alongside that, I build digital repository and web platforms for language-research projects connected to CIIL.</p>
+      <p>I care about building practical systems that real staff use every day: reliable, secure and simple to maintain.</p>
+    </div>
+    <div class="roles">
+      <div class="role"><h4>Assistant Manager – IT</h4><small>Hospital (NABH-accredited) · Current</small></div>
+      <div class="role"><h4>Junior Resource Person (Technical)</h4><small>Projects connected to CIIL, Mysore</small></div>
+      <div class="role"><h4>ERP Management</h4><small>Tadpole Engineering · Odoo / OpenERP</small></div>
+      <div class="role"><h4>Master of Computer Applications</h4><small>MCA</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow">02 / Projects</div>
+    <h2>Selected work</h2>
+    <p class="sub">Most of these were built for organizations, so the source code stays private. Here's what each one does, my role in it, and the technology behind it.</p>
+
+    <div class="filters">
+      <button class="active" data-f="all">All</button>
+      <button data-f="health">Healthcare</button>
+      <button data-f="web">Web &amp; Repositories</button>
+      <button data-f="iot">IoT</button>
+      <button data-f="infra">Infrastructure</button>
+      <button data-f="business">Business Apps</button>
+      <button data-f="sites">Live Websites</button>
+      <button data-f="fintech">Fintech</button>
+    </div>
+
+    <div class="grid">
+
+      <article class="card" data-c="health">
+        <div class="cat">Healthcare · In-house</div>
+        <h3>Hospital IT Ecosystem</h3>
+        <p>A set of in-house modules built around the hospital's HMIS to digitize daily operations.</p>
+        <ul>
+          <li>Visitor management with real-time updates</li>
+          <li>OPD queue and token display system</li>
+          <li>Doctor appointment booking (slot + token model)</li>
+          <li>Dietary management module</li>
+          <li>Lab analyzer integration (serial / LAN) with the lab application</li>
+        </ul>
+        <div class="chips"><span class="chip">Laravel</span><span class="chip">Livewire</span><span class="chip">Reverb</span><span class="chip">PostgreSQL</span></div>
+      </article>
+
+      <article class="card" data-c="health">
+        <div class="cat">Healthcare · Product</div>
+        <h3>Patient Feedback Platform</h3>
+        <p>A patient experience platform that collects feedback across departments and turns it into actionable reports for hospital management.</p>
+        <ul>
+          <li>Patient-facing feedback forms</li>
+          <li>Admin dashboard for tracking and follow-up</li>
+          <li>Department-wise insights</li>
+        </ul>
+        <div class="chips"><span class="chip">Laravel</span><span class="chip">PostgreSQL</span></div>
+      </article>
+
+      <article class="card" data-c="health">
+        <div class="cat">Healthcare · Laboratory</div>
+        <h3>LIMS – Laboratory Management System</h3>
+        <p>A laboratory information management system covering the lab workflow from sample collection to the final report.</p>
+        <ul>
+          <li>Patient and sample registration with tracking</li>
+          <li>Test result entry, validation and approval</li>
+          <li>Printable lab reports</li>
+          <li>Integration with lab analyzers (serial / LAN)</li>
+        </ul>
+        <div class="chips"><span class="chip">Laravel</span><span class="chip">PostgreSQL</span><span class="chip">Analyzer Integration</span></div>
+      </article>
+
+      <article class="card" data-c="health">
+        <div class="cat">Healthcare · Nutrition</div>
+        <h3>Brio Health – Meal Plan &amp; Health Reports</h3>
+        <p>A clinical nutrition platform where doctors plan daily meals for patients and get automated nutrition and lifestyle health reports.</p>
+        <ul>
+          <li>Five-meal daily planner with visual status for planned and missing meals</li>
+          <li>Nutrient analysis (protein, carbs, fats, fiber) against targets, with excess/deficiency remarks</li>
+          <li>Energy goals, BMI/BMR, hydration and sleep tracking</li>
+          <li>Abnormal lab markers, lifestyle trait scoring and family history risk</li>
+          <li>Consolidated patient result report</li>
+        </ul>
+        <div class="shots">
+          <img src="brio-meal-plan.png" alt="Brio Health – daily meal plan" loading="lazy" />
+          <img src="brio-nutrient-report.png" alt="Brio Health – nutrient report" loading="lazy" />
+          <img src="brio-customer-result.png" alt="Brio Health – customer result" loading="lazy" />
+          <img src="brio-health-markers.png" alt="Brio Health – biochemical markers and genetic linkage" loading="lazy" />
+        </div>
+        <div class="chips"><span class="chip">Laravel</span><span class="chip">Blade</span><span class="chip">Bootstrap</span><span class="chip">MySQL</span></div>
+      </article>
+
+      <article class="card" data-c="business">
+        <div class="cat">Enterprise · Chennai</div>
+        <h3>Asset Management System</h3>
+        <p>An asset management application for a mechanical engineering company in Chennai, used to track equipment across its lifecycle.</p>
+        <ul>
+          <li>Central asset register with categories and locations</li>
+          <li>Assignment and movement tracking</li>
+          <li>Maintenance scheduling and history</li>
+          <li>Reports for management</li>
+        </ul>
+        <div class="chips"><span class="chip">Web Application</span><span class="chip">Database</span><span class="chip">Reporting</span></div>
+      </article>
+
+      <article class="card" data-c="web">
+        <div class="cat">Digital Library · CIIL</div>
+        <h3>Bhasha Sanchika – DSpace Repository</h3>
+        <p>A digital repository of Indian-language resources, deployed and customized end to end.</p>
+        <ul>
+          <li>DSpace 9.x deployment on Docker and bare-metal Ubuntu</li>
+          <li>Custom Angular theme and branding</li>
+          <li>Solr search, GeoIP and analytics integration</li>
+          <li>Cross-matching the catalogue with Python fuzzy matching</li>
+        </ul>
+        <div class="chips"><span class="chip">DSpace</span><span class="chip">Angular</span><span class="chip">Solr</span><span class="chip">Tomcat</span><span class="chip">Docker</span></div>
+      </article>
+
+      <article class="card" data-c="web">
+        <div class="cat">Web · AI · CIIL</div>
+        <h3>SPPEL Website &amp; Agentic App</h3>
+        <p>The public website for the SPPEL language-documentation project, plus an agentic AI application built for the project.</p>
+        <ul>
+          <li>Laravel website with SEO improvements</li>
+          <li>Agentic AI application</li>
+          <li>Team onboarding and Git workflow setup</li>
+        </ul>
+        <div class="chips"><span class="chip">Laravel</span><span class="chip">AI / LLM</span><span class="chip">Linux</span></div>
+      </article>
+
+      <article class="card" data-c="iot">
+        <div class="cat">IoT · Industrial</div>
+        <h3>Stallion Machinery IoT Platform</h3>
+        <p>Remote monitoring for rental cement mixers operating across Gulf countries.</p>
+        <ul>
+          <li>ESP32 devices streaming telemetry, GPS and events over MQTT</li>
+          <li>Per-device certificates with mTLS and topic-level ACLs</li>
+          <li>Time-series storage and real-time device state cache</li>
+          <li>Role-based access with invite-only onboarding</li>
+        </ul>
+        <div class="chips"><span class="chip">ESP32</span><span class="chip">MQTT</span><span class="chip">Node.js / TS</span><span class="chip">TimescaleDB</span><span class="chip">Valkey</span><span class="chip">Keycloak</span></div>
+      </article>
+
+      <article class="card" data-c="iot">
+        <div class="cat">IoT · Dashboard</div>
+        <h3>MP25 Controller Dashboard</h3>
+        <p>A web dashboard for monitoring industrial controllers in real time.</p>
+        <ul>
+          <li>ESP32 → HiveMQ → MySQL data pipeline</li>
+          <li>Role-based login</li>
+          <li>Production deployment with PM2</li>
+        </ul>
+        <div class="chips"><span class="chip">ESP32</span><span class="chip">HiveMQ</span><span class="chip">Node.js</span><span class="chip">MySQL</span></div>
+      </article>
+
+      <article class="card" data-c="infra">
+        <div class="cat">Infrastructure · Hospital</div>
+        <h3>Hospital Network &amp; Monitoring</h3>
+        <p>Design and operation of a multi-subnet hospital network, plus a custom monitoring system.</p>
+        <ul>
+          <li>150+ CCTV cameras, 35 PoE switches, servers and endpoints</li>
+          <li>VLAN design, firewall SSO and core switch redundancy</li>
+          <li>Floor-wise monitoring with mobile push alerts</li>
+        </ul>
+        <div class="chips"><span class="chip">Networking</span><span class="chip">Zabbix</span><span class="chip">PRTG</span><span class="chip">Hikvision</span></div>
+      </article>
+
+      <article class="card" data-c="infra">
+        <div class="cat">Infrastructure · Office</div>
+        <h3>Windows Server AD Deployment</h3>
+        <p>Set up an Active Directory domain for a small office from scratch.</p>
+        <ul>
+          <li>Windows Server 2022 domain and Group Policy</li>
+          <li>Home drives, FSRM quotas, NTFS permissions</li>
+          <li>Network troubleshooting and recovery</li>
+        </ul>
+        <div class="chips"><span class="chip">Windows Server</span><span class="chip">Active Directory</span><span class="chip">GPO</span></div>
+      </article>
+
+      <article class="card" data-c="fintech">
+        <div class="cat">Fintech · Trading</div>
+        <h3>QuantNovaLabs</h3>
+        <p>An NSE options signal analysis and automated trading platform.</p>
+        <ul>
+          <li>Signal pattern analysis on options data</li>
+          <li>Broker integrations (Fyers, Zerodha Kite Connect)</li>
+          <li>Automated performance reports in PDF</li>
+        </ul>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Fyers API</span><span class="chip">Kite Connect</span><span class="chip">WeasyPrint</span></div>
+      </article>
+
+      <article class="card" data-c="web">
+        <div class="cat">Mobile · CMS</div>
+        <h3>Flutter App + Laravel CMS</h3>
+        <p>A mobile app driven by a Laravel content management backend.</p>
+        <ul>
+          <li>Firebase Crashlytics and background push notifications</li>
+          <li>CI pipeline that bundles CMS content into the app</li>
+        </ul>
+        <div class="chips"><span class="chip">Flutter</span><span class="chip">Laravel</span><span class="chip">Firebase</span></div>
+      </article>
+
+      <article class="card" data-c="web">
+        <div class="cat">AI · Self-hosted</div>
+        <h3>RAG Application on Local LLM</h3>
+        <p>A retrieval-augmented app running on a self-hosted model, with automated server provisioning.</p>
+        <ul>
+          <li>Local LLM with Ollama</li>
+          <li>One-script Ubuntu provisioning for multiple Laravel apps</li>
+        </ul>
+        <div class="chips"><span class="chip">Laravel</span><span class="chip">Ollama</span><span class="chip">Ubuntu</span></div>
+      </article>
+
+      <article class="card" data-c="sites">
+        <div class="cat">Live Website · Non-profit</div>
+        <h3>Vanchi Poor Fund</h3>
+        <p>Website for a Kerala charity founded in 1941, known for one of India's earliest organized mid-day meal programs.</p>
+        <ul>
+          <li>Online donations with payment integration</li>
+          <li>Pages for each initiative: elder care, mid-day meals, medical aid, education</li>
+          <li>Blog, photo and video galleries</li>
+        </ul>
+        <div class="chips"><span class="chip">Web Design</span><span class="chip">Payment Gateway</span><span class="chip">CMS</span></div>
+        <a class="visit" href="https://vanchipoorfund.org/" target="_blank" rel="noopener">Visit site ↗</a>
+      </article>
+
+      <article class="card" data-c="sites">
+        <div class="cat">Live Website · Building Systems</div>
+        <h3>Shield ELV Systems</h3>
+        <p>Corporate website for a company that installs and maintains building management, fire alarm, CCTV, access control and networking systems.</p>
+        <ul>
+          <li>Services, products and project showcase</li>
+          <li>Sectors served, client testimonials and partner brands</li>
+          <li>Lead-generation contact pages</li>
+        </ul>
+        <div class="chips"><span class="chip">Web Design</span><span class="chip">Responsive</span><span class="chip">SEO</span></div>
+        <a class="visit" href="https://shieldess.com/" target="_blank" rel="noopener">Visit site ↗</a>
+      </article>
+
+      <article class="card" data-c="sites">
+        <div class="cat">Live Website · Healthcare</div>
+        <h3>Attukal Devi Hospital</h3>
+        <p>Website for an NABH-accredited multispecialty hospital in Thiruvananthapuram, Kerala.</p>
+        <ul>
+          <li>Doctor profiles and department pages</li>
+          <li>Careers, gallery and insurance partner listings</li>
+          <li>Emergency and contact information</li>
+        </ul>
+        <div class="chips"><span class="chip">Web Design</span><span class="chip">Healthcare</span></div>
+        <a class="visit" href="https://attukaldevihospital.com/" target="_blank" rel="noopener">Visit site ↗</a>
+      </article>
+
+      <article class="card" data-c="sites">
+        <div class="cat">Live Website · UAE</div>
+        <h3>TRENCOR</h3>
+        <p>Portfolio website for a UAE company offering planning, design, build, furnishing and smart solutions.</p>
+        <ul>
+          <li>Service pages and project portfolio</li>
+          <li>Clean, responsive company profile</li>
+        </ul>
+        <div class="chips"><span class="chip">Web Design</span><span class="chip">Portfolio</span></div>
+        <a class="visit" href="https://trencoruae.com/" target="_blank" rel="noopener">Visit site ↗</a>
+      </article>
+
+      <article class="card" data-c="business">
+        <div class="cat">ERP · Business</div>
+        <h3>ERP &amp; Business Apps</h3>
+        <p>ERP management and custom business tools for engineering and finance teams.</p>
+        <ul>
+          <li>Odoo / OpenERP management at Tadpole Engineering</li>
+          <li>DC Bills management system with Excel export</li>
+        </ul>
+        <div class="chips"><span class="chip">Odoo</span><span class="chip">Laravel</span><span class="chip">PhpSpreadsheet</span></div>
+      </article>
+
+    </div>
+    <p class="note">Source code for organizational projects is confidential. I'm happy to walk through the architecture and my role in any of them during a conversation.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">03 / Skills</div>
+    <h2>What I work with</h2>
+    <p class="sub">A stack shaped by building systems end to end.</p>
+    <div class="skills">
+      <div class="skill"><h4>Backend</h4><div class="chips"><span class="chip">PHP / Laravel</span><span class="chip">Python</span><span class="chip">Node.js / TS</span><span class="chip">REST APIs</span></div></div>
+      <div class="skill"><h4>Frontend &amp; Mobile</h4><div class="chips"><span class="chip">Angular</span><span class="chip">Livewire</span><span class="chip">Flutter</span><span class="chip">WordPress</span></div></div>
+      <div class="skill"><h4>Data</h4><div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">TimescaleDB</span><span class="chip">Solr</span></div></div>
+      <div class="skill"><h4>Cloud &amp; DevOps</h4><div class="chips"><span class="chip">AWS EC2 · S3 · RDS</span><span class="chip">Lambda</span><span class="chip">Route 53</span><span class="chip">Docker</span><span class="chip">Linux</span></div></div>
+      <div class="skill"><h4>Infrastructure</h4><div class="chips"><span class="chip">Networking / VLAN</span><span class="chip">Active Directory</span><span class="chip">Zabbix / PRTG</span><span class="chip">Cybersecurity</span></div></div>
+      <div class="skill"><h4>IoT &amp; Platforms</h4><div class="chips"><span class="chip">ESP32</span><span class="chip">MQTT</span><span class="chip">Keycloak</span><span class="chip">DSpace</span><span class="chip">Odoo</span><span class="chip">HMIS / LIMS</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="eyebrow">04 / Contact</div>
+    <h2>Let's talk</h2>
+    <p class="sub">I'm open to collaboration on hospital IT, digital libraries, IoT and web platforms.</p>
+    <div class="cta">
+      <a href="https://github.com/varun-sppel" class="btn primary" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://varunkumar.net" class="btn" target="_blank" rel="noopener">varunkumar.net</a>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="y"></span> Varun Kumar · Mysore, India</footer>
+
+<div class="lightbox" id="lb"><img alt="" /><p></p></div>
+
+<script>
+  const lb = document.getElementById('lb');
+  document.querySelectorAll('.shots img').forEach(img => img.addEventListener('click', () => {
+    lb.querySelector('img').src = img.src;
+    lb.querySelector('p').textContent = img.alt;
+    lb.classList.add('open');
+  }));
+  lb.addEventListener('click', () => lb.classList.remove('open'));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+  document.getElementById('y').textContent = new Date().getFullYear();
+  const btns = document.querySelectorAll('.filters button');
+  const cards = document.querySelectorAll('.card');
+  btns.forEach(b => b.addEventListener('click', () => {
+    btns.forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    const f = b.dataset.f;
+    cards.forEach(c => c.classList.toggle('hide', f !== 'all' && c.dataset.c !== f));
+  }));
+</script>
+</body>
+</html>
