@@ -260,15 +260,22 @@
 
       <article class="card" data-c="business">
         <div class="cat">Enterprise · Chennai</div>
-        <h3>Asset Management System</h3>
-        <p>An asset management application for a mechanical engineering company in Chennai, used to track equipment across its lifecycle.</p>
+        <h3>DC Bill Management System</h3>
+        <p>A delivery challan system for a mechanical engineering company in Chennai. It tracks parts sent to suppliers and what comes back.</p>
         <ul>
-          <li>Central asset register with categories and locations</li>
-          <li>Assignment and movement tracking</li>
-          <li>Maintenance scheduling and history</li>
-          <li>Reports for management</li>
+          <li>Returnable and non-returnable DC bills with auto-generated bill numbers</li>
+          <li>Partial returns against each bill, with pending quantities and customer DC numbers</li>
+          <li>Part search while adding items, with live totals</li>
+          <li>Open/closed workflow, with returned stock added back to inventory</li>
+          <li>Printable PDF bills and a full returns history</li>
         </ul>
-        <div class="chips"><span class="chip">Web Application</span><span class="chip">Database</span><span class="chip">Reporting</span></div>
+        <div class="shots">
+          <img src="dc-bill-list.png" alt="DC Bill Management – bill list with filters" loading="lazy" />
+          <img src="dc-bill-create.png" alt="DC Bill Management – create a new DC bill" loading="lazy" />
+          <img src="dc-bill-detail.png" alt="DC Bill Management – bill detail and returns history" loading="lazy" />
+          <img src="dc-bill-returns.png" alt="DC Bill Management – process partial returns" loading="lazy" />
+        </div>
+        <div class="chips"><span class="chip">Laravel</span><span class="chip">Tailwind CSS</span><span class="chip">MySQL</span><span class="chip">DomPDF</span></div>
       </article>
 
       <article class="card" data-c="web">
@@ -432,13 +439,12 @@
 
       <article class="card" data-c="business">
         <div class="cat">ERP · Business</div>
-        <h3>ERP &amp; Business Apps</h3>
-        <p>ERP management and custom business tools for engineering and finance teams.</p>
+        <h3>ERP Management</h3>
+        <p>ERP administration and support for an engineering company.</p>
         <ul>
           <li>Odoo / OpenERP management at Tadpole Engineering</li>
-          <li>DC Bills management system with Excel export</li>
         </ul>
-        <div class="chips"><span class="chip">Odoo</span><span class="chip">Laravel</span><span class="chip">PhpSpreadsheet</span></div>
+        <div class="chips"><span class="chip">Odoo</span><span class="chip">OpenERP</span></div>
       </article>
 
     </div>
