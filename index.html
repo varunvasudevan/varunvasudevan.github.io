@@ -454,6 +454,26 @@
         <div class="chips"><span class="chip">ESP32</span><span class="chip">HiveMQ</span><span class="chip">Node.js</span><span class="chip">MySQL</span></div>
       </article>
 
+      <article class="card" data-c="iot">
+        <div class="cat">IoT · Counting System</div>
+        <h3>ESP32 LAN IR Sensor Counter</h3>
+        <p>Real-time object counting with up to six IR sensors on an ESP32, sent over wired Ethernet to a Raspberry Pi and shown on a live dashboard.</p>
+        <ul>
+          <li>ESP32 + W5500 Ethernet sends one event per detected object, with retry queue</li>
+          <li>FastAPI backend on Raspberry Pi; server is the single source of truth for counts</li>
+          <li>MySQL event log plus daily totals for fast recovery after power cuts</li>
+          <li>Live WebSocket dashboard with per-sensor totals and system status</li>
+          <li>Idempotent daily reset at 07:30 without losing history</li>
+        </ul>
+        <div class="shots three">
+          <img src="esp32-counter-dashboard.png" alt="IR Sensor Counter – live counting dashboard (sample data)" loading="lazy" />
+          <img src="esp32-counter-history.png" alt="IR Sensor Counter – timestamped event history (sample data)" loading="lazy" />
+          <img src="esp32-counter-device.png" alt="IR Sensor Counter – device and sensor status (sample data)" loading="lazy" />
+        </div>
+        <div class="chips"><span class="chip">ESP32</span><span class="chip">W5500 Ethernet</span><span class="chip">Raspberry Pi</span><span class="chip">FastAPI</span><span class="chip">MySQL</span><span class="chip">WebSockets</span></div>
+        <a class="visit" href="https://github.com/varunvasudevan/esp32-ir-sensor-counter" target="_blank" rel="noopener">View project ↗</a>
+      </article>
+
       <article class="card" data-c="infra">
         <div class="cat">Infrastructure · Hospital</div>
         <h3>Hospital Network &amp; Monitoring</h3>
@@ -588,13 +608,13 @@
     <h2>What I work with</h2>
     <p class="sub">A stack shaped by building systems end to end.</p>
     <div class="skills">
-      <div class="skill"><h4>Backend</h4><div class="chips"><span class="chip">PHP / Laravel</span><span class="chip">Python</span><span class="chip">Node.js / TypeScript</span><span class="chip">REST APIs</span><span class="chip">RBAC (spatie/permission)</span><span class="chip">Odoo / OpenERP customisation</span><span class="chip">Livewire / Reverb</span></div></div>
+      <div class="skill"><h4>Backend</h4><div class="chips"><span class="chip">PHP / Laravel</span><span class="chip">Python</span><span class="chip">Node.js / TypeScript</span><span class="chip">REST APIs</span><span class="chip">RBAC (spatie/permission)</span><span class="chip">Odoo / OpenERP customisation</span><span class="chip">FastAPI</span><span class="chip">WebSockets</span><span class="chip">Livewire / Reverb</span></div></div>
       <div class="skill"><h4>Frontend</h4><div class="chips"><span class="chip">JavaScript (ES6+)</span><span class="chip">HTML5 / CSS3</span><span class="chip">Angular</span><span class="chip">Tailwind CSS</span><span class="chip">Bootstrap</span><span class="chip">Chart.js</span><span class="chip">WordPress</span></div></div>
       <div class="skill"><h4>Desktop &amp; Mobile</h4><div class="chips"><span class="chip">Tkinter</span><span class="chip">OpenCV</span><span class="chip">PyInstaller</span><span class="chip">pywin32</span><span class="chip">Flutter</span><span class="chip">Kotlin (in progress)</span></div></div>
       <div class="skill"><h4>Data &amp; AI</h4><div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">TimescaleDB</span><span class="chip">Solr</span><span class="chip">Redis / Valkey</span><span class="chip">Time-series forecasting</span><span class="chip">Physics simulation (Verlet)</span><span class="chip">Google Analytics</span><span class="chip">LLM / RAG (Ollama)</span></div></div>
       <div class="skill"><h4>Cloud &amp; DevOps</h4><div class="chips"><span class="chip">AWS EC2 · S3 · RDS</span><span class="chip">Lambda</span><span class="chip">Route 53</span><span class="chip">Docker</span><span class="chip">Linux</span><span class="chip">Bash scripting</span><span class="chip">Nginx</span><span class="chip">Let's Encrypt</span><span class="chip">PM2</span></div></div>
       <div class="skill"><h4>Infrastructure</h4><div class="chips"><span class="chip">Networking / VLAN</span><span class="chip">Active Directory</span><span class="chip">Windows Server</span><span class="chip">Zabbix / PRTG</span><span class="chip">Cybersecurity</span></div></div>
-      <div class="skill"><h4>IoT &amp; Platforms</h4><div class="chips"><span class="chip">ESP32</span><span class="chip">MQTT</span><span class="chip">Keycloak</span><span class="chip">DSpace</span><span class="chip">Odoo</span><span class="chip">HMIS / LIMS</span><span class="chip">Lab analyzer integration</span><span class="chip">Data migration</span></div></div>
+      <div class="skill"><h4>IoT &amp; Platforms</h4><div class="chips"><span class="chip">ESP32</span><span class="chip">W5500 Ethernet</span><span class="chip">Raspberry Pi</span><span class="chip">Arduino (C++)</span><span class="chip">MQTT</span><span class="chip">Keycloak</span><span class="chip">DSpace</span><span class="chip">Odoo</span><span class="chip">HMIS / LIMS</span><span class="chip">Lab analyzer integration</span><span class="chip">Data migration</span></div></div>
     </div>
   </div>
 </section>
